@@ -1,75 +1,93 @@
-{%extends 'layout.html'%} 
+{%extends 'layout.html'%}
 
 {% load bootstrap4%}
+{% load ratings %}
 
 {% block content %}
 <div class="container">
-<div class="row mt-4">
+  <div class="row mt-4"></div>
+  <!-- Grid row -->
+  <div class="row">
 
-  
-    <div class="col-lg-6">
+    <!-- Grid column -->
+    <div class="col-lg-12">
 
-          <!-- Card -->
-          <div class="card mt-2 pb-2 mb-2">
-              <!-- Card header -->
-              <div class="card-footer pt-1 pb-1 text-dark font-weight-bold" id="{{project.id}}">
-                  <img src="{{ project.Author.profile.photo.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 50px;">
-                  {{project.Author}}
-                </div>
+      <!-- Card -->
+      <div class="card card-cascade wider reverse">
 
-              <!-- Card project -->
-              <div class="view overlay">
-                  {% if project.project_image %}
-                  <img class="card-img-top pl-1 pr-1" src="{{project.project_image.url}}" alt="{{ project_item.project_name }}" height="600px">
-                  {% else %}
-                  <img  class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation" alt="{{ project_item.project_name }}">
-                  {% endif %}
-                <a href="/project/{{project.id}}">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>   
-
+        <!-- Card image -->
+        <div class="view view-cascade overlay">
+          {% if project.project_image %}
+          <img class="card-img-top" src="{{project.project_image.url}}" alt="{{ project.project_name }}"
+           style="max-height: 500px;">
+          {% else %}
+          <img class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation"
+            alt="{{ project.project_name }}">
+          {% endif %}
+          <a href="#!">
+            <div class="mask rgba-white-slight">
+              <div class="d-flex justify-content-end">
+                <a href="{{project.link}}" target="_blank" title="Visit site"> <button type="button"
+                    class="btn btn-light px-3"><i class="fas fa-directions" aria-hidden="true"></i></button>
+                </a></div>
             </div>
-            <!-- Card -->       
+          </a>
+        </div>
 
-    </div>
+        <!-- Card content -->
+        <div class="card-body card-body-cascade text-center">
 
-    <div class="col-lg-6">
+          <!-- Title -->
+          <h2 class="font-weight-bold"><a>{{ project.project_title }}</a></h2>
+          <!-- Data -->
+          <h4 class="">{{ project.project_description }}</h4>
+
+          <!-- Social shares -->
+          <div>
+            <a href="{{project.link}}" target="_blank" title="Visit site">
+              <button type="button" class="btn btn-default font-weight-bold px-3">Visit site</button></a>
+          </div>
+          <div class="mt-2 pt-2">
+            <h4>Vote</h4>
+          </div>
+          {% ratings project %}
+
+
+          <div class="row">
+            <div class="col-lg-6 dark-text"> <small> <span class="mr-1"> From {{project.country.name}}</span>
+                <img src="{{project.country.flag}}" alt=" {{project.country.name}} flag"> </small> </div>
+
+            <div class="col-lg-6 dark-text"> <small> Date Posted: {{project.pub_date|date:"d /m/Y"}} </small> </div>
+          </div>
+
+        </div>
+        <!-- Card content -->
+
+      </div>
+      <!-- Card -->
 
       <!-- Card -->
       <div class="card mt-5 pb-2 mb-2">
-         
 
-          <!-- Card content -->
-          <div class="card-body">
+        <!-- Card footer -->
+        <div class="card-footer bg-white">
+          <h5 class="pt-2">CREDITS</h5>
 
-            <!-- Title -->
-            <p class="card-title font-weight-bold">{{ project.Author }} <span class="card-text ml-2"> {{ project.description }} </span></p> 
-            <!-- Text -->
-            <!-- <p class="card-text">{{ project.description }}</p> -->
-            <!-- Button -->
-            {% for comment_item in comments %}
-            
-              {% if project.pk == comment_item.project.pk%}
-            <p> {{comment_item.author}} <span class="text-black-50"> {{comment_item.comment}} </span> </p>
-            {% endif %}
+          <hr>
 
-            {% endfor %}
-
-            <div><small class="text-black-50">{{project.pub_date|timesince}} ago</small></div>
-          </div>
-
-          <!-- Card footer -->
-            <div class="card-footer text-muted text-center">
-              
-              </div>
-
+          <small class="font-weight-bold ml-2"><img src="{{ project.Author.profile.photo.url }}" alt=""
+              class="rounded-circle img-fluid mr-1" style="width: 50px;">
+            BY {{project.Author|upper}} <span class="ml-1 mr-1"> From {{project.country.name}}</span>
+            <img src="{{project.country.flag}}" alt=" {{project.country.name}} flag"></small>
         </div>
-        <!-- Card -->
+
+      </div>
+
     </div>
-      
+    <!-- Grid column -->
+
   </div>
+  <!-- Grid row -->
+
 </div>
-
-
 {% endblock %}
