@@ -35,6 +35,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'awwards.apps.AwwardsConfig',
+    'django_countries',
+    'star_ratings',
     'bootstrap4',
     'tinymce',
     'crispy_forms',
@@ -146,3 +148,4 @@ django_heroku.settings(locals())
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL ='/'
+STAR_RATINGS_RANGE = 10
