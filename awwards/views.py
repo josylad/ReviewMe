@@ -48,8 +48,6 @@ def search_projects(request):
         return render(request, 'search.html', {"message": message})
 
 
-
-@login_required(login_url='/accounts/login/')
 def get_project(request, id):
 
     try:
