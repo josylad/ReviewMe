@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'awwards.apps.AwwardsConfig',
     'django_countries',
     'star_ratings',
