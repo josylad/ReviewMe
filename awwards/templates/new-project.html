@@ -12,8 +12,8 @@
   <title>New Project - Awwards</title>
 
 {% block styles %} 
-{% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/basenews.css' %}"> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/basenews.css' %}"> 
     <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
   {% endblock %}
@@ -22,9 +22,9 @@
 <body>
       {% include "navbar.html" %}
 
-    <div class="jumbotron jumbotron-fluid bg-dark pb-3 pt-3">
+    <div class="jumbotron jumbotron-fluid bg-light pb-3 pt-3">
             
-                <h2 class="display-5 text-center font-weight-bold text-white">Add a New Project</h2>
+       <h2 class="display-5 text-center font-weight-bold">SUBMIT YOUR SITE </h2>
     
     </div>      
 
@@ -37,7 +37,7 @@
               {%csrf_token%}
 
               {% bootstrap_form form%}
-              <input type="submit" class="btn btn-success btn-lg" value="Post">
+              <input type="submit" class="btn btn-success btn-lg font-weight-bold" value="SUBMIT">
             </form>
       </div>
 
