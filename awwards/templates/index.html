@@ -51,20 +51,33 @@
                 
                     <div class="card">
                       <!-- Card image -->
-                    <div class="view overlay">
+                    <div class="view overlay zoom">
                         {% if project_item.project_image %}
-                        <img class="card-img-top" src="{{project_item.project_image.url}}" alt="{{ project_item.project_name }}" height="300px">
-                        {% else %}
-                        <img  class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation" alt="{{ project_item.project_name }}">
-                        {% endif %}
                         <a href="/project/{{project_item.id}}">
-                          <div class="mask rgba-white-slight"></div>
+                        <img class="card-img-top" src="{{project_item.project_image.url}}" alt="{{ project_item.project_name }}" height="300px">
+                        </a>
+                        {% else %}
+                        <a href="/project/{{project_item.id}}">
+                        <img  class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation" alt="{{ project_item.project_name }}">
+                        </a>
+                        {% endif %}
+                        
+                        <a href="/project/{{project_item.id}}">
+                          <div class="mask rgba-black-light">
+                              <!-- <div class="d-flex justify-content-end">
+                               <a href="{{project_item.link}}" target="_blank" title="Visit site"> <button type="button" class="btn btn-light px-3"><i class="fas fa-directions" aria-hidden="true"></i></button>
+                              </a></div> -->
+                            <!-- <img class="ico-svg" src="/media/images/redo-arrow (2).png" alt=""> -->
+                          </div>
                         </a>
                       </div>
                 
-                      <div class="card-body pr-2 pl-2">
+                      <div class="card-body pr-2 pl-2 pr-2 mr-2">
                         <h5 class="card-title ml-4">{{ project_item.project_title }}</h5>
-                        <p class="card-text ml-4">{{project_item.pub_date|date:"d /m/Y"}}</p>
+                        <div class="row ml-2">
+                          <div class="col-lg-6 dark-text"> <small> <span class="mr-1"> From {{project_item.country.name}}</span> <img src="{{project_item.country.flag}}" alt=" {{project_item.country.name}} flag">  </small> </div>
+                          <div class="col-lg-6 dark-text d-flex justify-content-end"> <small> {{project_item.pub_date|date:"d /m/Y"}} </small> </div>
+                        </div>
                       </div>
                       <div class="card-footer">
                         <small class="text-muted ml-2"><img src="{{ project_item.Author.profile.photo.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 30px;">
