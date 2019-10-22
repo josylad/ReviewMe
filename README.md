@@ -50,7 +50,7 @@ To work with Awwards App you need to have some few prerequisites.
 
 3. To get to use **Awwards** first you need to get to the Awwards repository. 
 
-Link:-> ```https://github.com/josylad/Reviewz```
+Link:-> ```https://github.com/josylad/ReviewMe```
 
 4. From there you can access Awwards App.
 
