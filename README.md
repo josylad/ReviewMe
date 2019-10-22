@@ -79,6 +79,14 @@ run:
 * MDBootstrap
 
 
+## User Story 
+This application comes with two API Endpoints for Profiles and Projects.
+
+- Profiles API Endpoint - https://siteawward.herokuapp.com/api/profiles/ 
+
+- Projects API Endpoint - https://siteawward.herokuapp.com/api/projects/
+
+
 # AUTHOR
 
 * Joseph Adediji 
