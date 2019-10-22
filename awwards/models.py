@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from PIL import Image
 from django_countries.fields import CountryField
-
+from star_ratings.models import Rating
 
 # Create your models here.
 
@@ -58,7 +58,7 @@ class Projects(models.Model):
     
     @classmethod
     def search_projects(cls, search_term):
-        projects = cls.objects.filter(description__icontains=search_term)
+        projects = cls.objects.filter(project_title__icontains=search_term)
         return projects
     
     
