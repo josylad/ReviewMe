@@ -1,8 +1,8 @@
-    <nav class="navbar navbar-light bg-light">
+    <!-- <nav class="navbar navbar-light bg-light">
         <span class="navbar-text text-dark text-center" style="align-content: center;">
             The awards of design, creativity and innovation on the internet
         </span>
-      </nav>
+      </nav> -->
 <!--Navbar-->
 <nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
@@ -55,15 +55,15 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i> My Account </a>
-                  <ul class="dropdown-menu" role="menu">
+                  <ul class="dropdown-menu dropdown-default" role="menu">
                     <li>
-                        <a href="{%url 'profile'%}">Profile</a>
+                        <a class="dropdown-item" href="{%url 'profile'%}">Profile</a>
                       </li>
                     <li>
-                      <a href="/accounts/password/change">Change Password</a>
+                      <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
                     </li>
                     <li>
-                      <a href="/logout">Logout</a>
+                      <a class="dropdown-item" href="/logout">Logout</a>
                     </li>
                   </ul>
                 </li>
